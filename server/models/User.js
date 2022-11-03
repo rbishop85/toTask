@@ -19,6 +19,26 @@ const userSchema = new Schema({
     required: true,
     minlength: 5,
   },
+  photo: {
+    type: String
+  },
+  rating: [
+    {
+      type: Number
+    }
+  ],
+  tasksPosted: [
+    {
+      type: Schema.Types.ObjectId,
+      ref: 'Task'
+    }
+  ],
+  tasksAssigned: [
+    {
+      type: Schema.Types.ObjectId,
+      ref: 'Task'
+    }
+  ],
   // thoughts: [
   //   {
   //     type: Schema.Types.ObjectId,
