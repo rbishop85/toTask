@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import TaskPage from '../../pages/TaskPage';
 
 import Auth from '../../utils/auth';
 
@@ -13,9 +14,9 @@ const Header = () => {
       <div className="container flex-row justify-space-between-lg justify-center align-center">
         <div>
           <Link className="text-light" to="/">
-            <h1 className="m-0">Timeline</h1>
+            <h1 className="m-0">toTask</h1>
           </Link>
-          <p className="m-0">Create a timeline of things</p>
+          <p className="m-0">tasks on demand</p>
         </div>
         <div>
           {Auth.loggedIn() ? (
@@ -26,6 +27,9 @@ const Header = () => {
               <button className="btn btn-lg btn-light m-2" onClick={logout}>
                 Logout
               </button>
+              <button className="btn btn-lg btn-light m-2" onClick={TaskPage}>
+                Tasks
+              </button>
             </>
           ) : (
             <>
@@ -34,6 +38,9 @@ const Header = () => {
               </Link>
               <Link className="btn btn-lg btn-light m-2" to="/signup">
                 Signup
+              </Link>
+              <Link className="btn btn-lg btn-light m-2" to="/tasks">
+                Tasks
               </Link>
             </>
           )}

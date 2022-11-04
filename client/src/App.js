@@ -12,7 +12,7 @@ import Home from './pages/Home';
 import Signup from './pages/Signup';
 import Login from './pages/Login';
 import Profile from './pages/Profile';
-import Tasks from './pages/Tasks';
+import TaskPage from './pages/TaskPage';
 import Header from './components/Header';
 import Footer from './components/Footer';
 
@@ -70,7 +70,7 @@ function App() {
               />
               <Route 
                 path="/tasks"
-                element={<Tasks />}
+                element={<TaskPage />}
               />
             </Routes>
           </div>
