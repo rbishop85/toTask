@@ -13,8 +13,11 @@ import Signup from './pages/Signup';
 import Login from './pages/Login';
 import Profile from './pages/Profile';
 import TaskPage from './pages/TaskPage';
+import Test from './pages/Test';
 import Header from './components/Header';
 import Footer from './components/Footer';
+
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 // Construct our main GraphQL API endpoint
 const httpLink = createHttpLink({
@@ -71,6 +74,7 @@ function App() {
               <Route 
                 path="/tasks"
                 element={<TaskPage />}
+              />
               />
             </Routes>
           </div>
