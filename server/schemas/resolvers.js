@@ -75,6 +75,9 @@ const resolvers = {
     },
     // editTask - (Update an existing task)
     // deleteTask - (Delete the Task)
+    deleteTask: async (parent, { taskId }) => {
+      return Task.findOneAndDelete({ _id: taskId });
+    },
     // updateUser - (Update user, possibly adding their photo)    
   },
 };
