@@ -3,16 +3,57 @@
     "name": "Errands"
  },
  {
-    "name": "Errands"
+    "name": "Cleaning"
  },
  {
-    "name": "Errands"
+    "name": "Delivery"
  },
  {
-    "name": "Errands"
+    "name": "Painting"
  },
  {
-    "name": "Errands"
+    "name": "Laundry"
+ },
+ {
+    "name": "Packing & Unpacking"
+ },
+ {
+    "name": "Yard Work"
+ },
+ {
+   "name": "Plumbing"
+ },
+ {
+   "name": "Furniture Assembly"
+ },
+ {
+   "name": "Car Washing"
+ },
+ {
+   "name": "Heavy Lifting & Loading"
+ },
+ {
+   "name": "Smart Home Installation"
+ },
+ {
+   "name": "Electrical Help"
+ },
+ {
+   "name": "Hair & Nail Styling"
+ },
+ {
+   "name": "Shopping"
+ },
+ {
+   "name": "Power Washing"
+ },
+ {
+   "name": "Home Winterizing"
+ },
+ {
+   "name": "Insect and Animal Extermination"
+ },
+ {
+   "name": "Minor Home Repairs"
  }
-
 ]
