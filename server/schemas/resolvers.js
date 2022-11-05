@@ -75,8 +75,24 @@ const resolvers = {
     },
     // editTask - (Update an existing task)
     // deleteTask - (Delete the Task)
-    deleteTask: async (parent, { taskId }) => {
-      return Task.findOneAndDelete({ _id: taskId });
+    deleteTask: async (parent, { taskId }, context) => {
+      if (context.user ) {
+        return Task.findOneAndDelete({ _id: taskId, toerId: context.user._id });
+      }
+      if (context.user) {
+        const task = await Task.findOneAndDelete({
+          _id: taskId,
+          toerId: context.user._id,
+        });
+
+        await User.findOneAndUpdate(
+          { _id: context.user._id },
+          { $pull: { taskPosted: task._id } }
+        );
+
+        return task;
+      }
+      throw new AuthenticationError('You need to be logged in!');
     },
     // updateUser - (Update user, possibly adding their photo)    
   },
