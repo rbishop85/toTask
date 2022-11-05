@@ -74,7 +74,6 @@ function App() {
                 path="/tasks"
                 element={<TaskPage />}
               />
-              />
             </Routes>
           </div>
           <Footer />
