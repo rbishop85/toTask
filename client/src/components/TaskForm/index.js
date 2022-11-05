@@ -2,103 +2,71 @@ import React, { useState } from "react";
 
 function TaskForm(props) {
   const [input, setInput] = useState("");
-  let [eagerness, setEagerness] = useState("");
-
-  const eagernessLevel = ["high", "medium", "low"];
 
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    if (!eagerness) {
-      eagerness = "low";
-    }
-
-    props.onSubmit({
-      id: Math.random(Math.floor() * 1000),
-      text: input,
-      eagerness: eagerness,
-    });
-
     setInput("");
-    setEagerness("");
+ 
   };
 
   const handleChange = (e) => {
-    setInput(e.target.value);
+    const name = e.target.name;
+    const value = e.target.value;
+    setInput(values => ({...values, [name]: value}));
   };
 
   return !props.edit ? (
     <div>
       <form className="task-form" onSubmit={handleSubmit}>
         <label>
-            Task category:
-            <input
-            name="task title"
-            type="dropdown"
-            placeholder="Add task category"
-            className="task-input"
-            onChange={handleChange}
-            ></input>
-        </label>
-        <label>
-            Description: 
-        <input
-          name="task description"
-          type="text"
-          placeholder="describe your task"
-          value={input}
-          className="task-input"
-          onChange={handleChange}
-        ></input>
-        </label>
-
-        <label>
-          Due Date:
+          Task category:
           <input
-            name="task due-date"
-            type="date"
-            placeholder="describe your task"
-            value={input}
+            name="category"
+            type="text"
+            placeholder="Add task category"
+            value={input.category || ""}
             className="task-input"
             onChange={handleChange}
           ></input>
         </label>
-        <div className="dropdown">
-          <button className={`dropbtn ${eagerness}`}>
-            {eagerness || "Priority"}
-          </button>
-          <div className="dropdown-content">
-            <p onClick={() => setEagerness(eagernessLevel[0])}>Urgent </p>
-            <p onClick={() => setEagerness(eagernessLevel[1])}>2-3 days</p>
-            <p onClick={() => setEagerness(eagernessLevel[2])}>4-7 days</p>
-          </div>
-        </div>
-        <button className="task-button">Add Task</button>
+        <label>
+          Description:
+          <input
+            name="description"
+            type="text"
+            placeholder="describe your task"
+            value={input.description || ""}
+            className="task-input"
+            onChange={handleChange}
+          ></input>
+        </label>
+
+        <button className="task-button" type='submit'>Add Task</button>
       </form>
     </div>
   ) : (
     <div>
       <h3>Update entry: {props.edit.value}</h3>
       <form className="task-form" onSubmit={handleSubmit}>
+         <input
+            name="category"
+            type="text"
+            placeholder={props.edit.name}
+            value={input.category || ""}
+            className="task-input"
+            onChange={handleChange}
+          ></input>
         <input
           type="text"
           placeholder={props.edit.value}
-          value={input}
+          value={input.description}
           name="text"
           className="task-input"
           onChange={handleChange}
         ></input>
-        <div className="dropdown">
-          <button className={`dropbtn ${eagerness}`}>
-            {eagerness || "Priority"}
-          </button>
-          <div className="dropdown-content">
-            <p onClick={() => setEagerness(eagernessLevel[0])}>Urgent</p>
-            <p onClick={() => setEagerness(eagernessLevel[1])}>2-3 days</p>
-            <p onClick={() => setEagerness(eagernessLevel[2])}>4-7 days</p>
-          </div>
-        </div>
-        <button className="task-button">Update</button>
+    
+        <button className="task-button" type='submit'>Update</button>
       </form>
     </div>
   );
