@@ -17,12 +17,12 @@ const typeDefs = gql`
     name: String
     description: String
     value: Int
-    postDate: Int
-    dueDate: Int
-    completedDate: Int
-    tags: [Tag]
-    toerId: [User]
-    doerId: [User]
+    postDate: String
+    dueDate: String
+    completedDate: String
+    tag: Tag
+    toerId: User
+    doerId: User
   }
 
   type Tag {
@@ -40,14 +40,14 @@ const typeDefs = gql`
     user(username: String!): User
     me: User
     tasks: [Task]
-    task: Task
+    task(_id: String!): Task
     tags: [Tag]
   }
 
   type Mutation {
     addUser(username: String!, email: String!, password: String!): Auth
     login(email: String!, password: String!): Auth
-    addTask(name: String!, description: String!, value: Int!, dueDate: Int!, tags: [ID]): Task
+    addTask(name: String!, description: String!, value: Int!, dueDate: String, tags: [ID]): Task
   }
 `;
 

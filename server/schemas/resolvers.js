@@ -23,13 +23,13 @@ const resolvers = {
     // tasks - All Tasks
     tasks: async () => {
       return Task.find()
-      .populate('tags')
+      .populate('tag')
       .populate('toerId');
     },
     // task - One Task
     task: async (parent, { _id }) => {
       return Task.findOne({ _id })
-      .populate('tags')
+      .populate('tag')
       .populate('toerId')
       .populate('doerId');
     },
@@ -63,8 +63,8 @@ const resolvers = {
       return { token, user };
     },
     // addTask - (Create new task)
-    addTask: async (parent, { name, description, value, dueDate, tags }, context) => {
-      const task = await Task.create({ name, description, value, dueDate, tags, toerId: context.user._id });
+    addTask: async (parent, { name, description, value, dueDate, tag }, context) => {
+      const task = await Task.create({ name, description, value, dueDate, tag, toerId: context.user._id });
 
       await User.findOneAndUpdate(
         { _id: context.user._id },
