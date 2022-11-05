@@ -14,12 +14,16 @@ const Header = () => {
   return (
     <header className="bg-secondary text-light mb-4 py-3 flex-row align-center">
       <div className="container flex-row justify-space-between-lg justify-center align-center">
-        <div>
-          <Link className="text-light" to="/">
-            <h1 className="m-0">toTask</h1>
-          </Link>
-          <p className="m-0">tasks on demand</p>
-        </div>
+       <Nav>
+        <Link to="/">
+        <img
+          alt="toTask Logo"
+          src="/toTask.svg"
+          width="180px"
+          height="80px"
+        />
+        </Link>
+       </Nav>
         <Nav className="justify-content-end" activeKey="/home">
           {Auth.loggedIn() ? (
             <>
