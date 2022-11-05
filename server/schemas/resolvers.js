@@ -74,6 +74,18 @@ const resolvers = {
       return task;
     },
     // editTask - (Update an existing task)
+    editTask: async (parent, args, context) => {
+      if (context.user) {
+        return Task.findOneAndUpdate(
+          { _id: args._id, toerId: context.user._id },
+          args, 
+          {
+          new: true,
+        });
+      }
+
+      throw new AuthenticationError('Not logged in');
+    },
     // deleteTask - (Delete the Task)
     deleteTask: async (parent, { taskId }, context) => {
       if (context.user ) {
@@ -94,7 +106,7 @@ const resolvers = {
       }
       throw new AuthenticationError('You need to be logged in!');
     },
-    // updateUser - (Update user, possibly adding their photo)    
+    // updateUser - (Update user, possibly adding their photo)
   },
 };
 
