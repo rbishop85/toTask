@@ -59,8 +59,8 @@ export const QUERY_TASKS = gql`
 `;
 
 export const QUERY_SINGLE_TASK = gql`
-  query getSingleTask($taskId: ID!) {
-    task(taskId: $taskId) {
+  query getSingleTask {
+    task {
       _id
       name
       description
@@ -80,7 +80,7 @@ export const QUERY_SINGLE_TASK = gql`
 `;
 
 export const QUERY_TAG = gql`
-  query getTag() {
+  query getTag {
     _id
     name
   }
