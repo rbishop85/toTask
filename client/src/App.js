@@ -16,6 +16,8 @@ import TaskPage from './pages/TaskPage';
 import Header from './components/Header';
 import Footer from './components/Footer';
 
+import 'bootstrap/dist/css/bootstrap.min.css';
+
 // Construct our main GraphQL API endpoint
 const httpLink = createHttpLink({
   uri: '/graphql',
