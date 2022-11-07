@@ -79,18 +79,14 @@ const resolvers = {
         return Task.findOneAndUpdate(
           { _id: args._id, toerId: context.user._id },
           args, 
-          {
-          new: true,
-        });
+          { new: true }
+        );
       }
 
       throw new AuthenticationError('Not logged in');
     },
     // deleteTask - (Delete the Task)
     deleteTask: async (parent, { taskId }, context) => {
-      if (context.user ) {
-        return Task.findOneAndDelete({ _id: taskId, toerId: context.user._id });
-      }
       if (context.user) {
         const task = await Task.findOneAndDelete({
           _id: taskId,
@@ -99,14 +95,25 @@ const resolvers = {
 
         await User.findOneAndUpdate(
           { _id: context.user._id },
-          { $pull: { taskPosted: task._id } }
+          { $pull: { tasksPosted: taskId } }
         );
 
         return task;
       }
       throw new AuthenticationError('You need to be logged in!');
     },
-    // updateUser - (Update user, possibly adding their photo)
+    // updateUserPhoto - (update user's profile photo)
+    updateUserPhoto: async (parent, { photoUrl }, context) => {
+      if (context.user) {
+        return User.findByIdAndUpdate(
+          context.user._id,
+          { photo: photoUrl }, 
+          { new: true }
+        );
+      }
+
+      throw new AuthenticationError('Not logged in');
+    },
   },
 };
 
