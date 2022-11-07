@@ -28,12 +28,10 @@ const taskSchema = new Schema({
     get: (timestamp) => dateFormat(timestamp),
 
   },
-  tags: [
-    {
-      type: Schema.Types.ObjectId,
-      ref: 'Tag'
-    }
-  ],
+  tag: {
+    type: Schema.Types.ObjectId,
+    ref: 'Tag'
+  },
   toerId: {
     type: Schema.Types.ObjectId,
     ref: 'User'
