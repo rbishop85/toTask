@@ -70,8 +70,8 @@ export const DELETE_TASK = gql`
 `;
 
 export const ADD_COMMENT = gql`
-  mutation addComment($thoughtId: ID!, $commentText: String!) {
-    addComment(thoughtId: $thoughtId, commentText: $commentText) {
+  mutation addComment($tasktId: ID!, $commentText: String!) {
+    addComment(tasktId: $tasktId, commentText: $commentText) {
       _id
       description
       toerId
@@ -87,8 +87,8 @@ export const ADD_COMMENT = gql`
 `;
 
 export const REMOVE_COMMENT = gql`
-  mutation removeComment($thoughtId: ID!, $commentText: String!) {
-    removeComment(thoughtId: $thoughtId, commentText: $commentText) {
+  mutation removeComment($tasktId: ID!, $commentText: String!) {
+    removeComment(taskId: $taskId, commentText: $commentText) {
       _id
       description
       toerId
