@@ -42,17 +42,7 @@ const typeDefs = gql`
     tasks: [Task]
     task(_id: String!): Task
     tags: [Tag]
-    thoughts: [Thought]!
-    thought(thoughtId: ID!): Thought
-  }
-
-  type Thought {
-    _id: ID
-    thoughtText: String
-    thoughtAuthor: String
-    createdAt: String
-    comments: [Comment]!
-  }
+      }
 
   type Comment {
     _id: ID
@@ -69,9 +59,7 @@ const typeDefs = gql`
     updateUserPhoto(photoUrl: String!): User
     addThought(thoughtText: String!, thoughtAuthor: String!): Thought
     addComment(thoughtId: ID!, commentText: String!): Thought
-    removeThought(thoughtId: ID!): Thought
-    removeComment(thoughtId: ID!, commentId: ID!): Thought
-  }
+      }
 `;
 
 module.exports = typeDefs;
