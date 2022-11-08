@@ -28,6 +28,7 @@ export const ADD_TASK = gql`
   mutation addTask($taskText: String!) {
     addTask(taskText: $taskText) {
       _id
+      name
       description
       toerId
       createdAt
