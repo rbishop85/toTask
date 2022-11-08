@@ -1,4 +1,4 @@
-const { gql } = require('apollo-server-express');
+const { gql } = require("apollo-server-express");
 
 const typeDefs = gql`
   type User {
@@ -23,6 +23,13 @@ const typeDefs = gql`
     tag: Tag
     toerId: User
     doerId: User
+    comments: [Comment]
+  }
+  type Comment {
+    _id: ID
+    commentText: String
+    commentAuthor: String
+    createdAt: String
   }
 
   type Tag {
@@ -42,35 +49,32 @@ const typeDefs = gql`
     tasks: [Task]
     task(_id: String!): Task
     tags: [Tag]
-    thoughts: [Thought]!
-    thought(thoughtId: ID!): Thought
-  }
-
-  type Thought {
-    _id: ID
-    thoughtText: String
-    thoughtAuthor: String
-    createdAt: String
-    comments: [Comment]!
-  }
-
-  type Comment {
-    _id: ID
-    commentText: String
-    createdAt: String
   }
 
   type Mutation {
     addUser(username: String!, email: String!, password: String!): Auth
     login(email: String!, password: String!): Auth
-    addTask(name: String!, description: String!, value: Int!, dueDate: String, tag: ID): Task
-    editTask(_id: ID!, name: String, description: String, value: Int, dueDate: String, completedDate: String, tag: ID, doerId: ID): Task
+    addTask(
+      name: String!
+      description: String!
+      value: Int!
+      dueDate: String
+      tag: ID
+    ): Task
+    editTask(
+      _id: ID!
+      name: String
+      description: String
+      value: Int
+      dueDate: String
+      completedDate: String
+      tag: ID
+      doerId: ID
+    ): Task
     deleteTask(taskId: ID!): Task
     updateUserPhoto(photoUrl: String!): User
-    addThought(thoughtText: String!, thoughtAuthor: String!): Thought
-    addComment(thoughtId: ID!, commentText: String!): Thought
-    removeThought(thoughtId: ID!): Thought
-    removeComment(thoughtId: ID!, commentId: ID!): Thought
+    addComment(taskId: ID!, commentText: String!): Task
+    removeComment(taskId: ID!, commentId: ID!): Task
   }
 `;
 
