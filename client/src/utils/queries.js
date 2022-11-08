@@ -85,3 +85,14 @@ export const QUERY_TAG = gql`
     name
   }
 `;
+
+export const QUERY_THOUGHTS = gql`
+  query getThoughts {
+    thoughts {
+      _id
+      thoughtText
+      thoughtAuthor
+      createdAt
+    }
+  }
+`;
