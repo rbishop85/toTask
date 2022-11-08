@@ -23,13 +23,13 @@ const resolvers = {
     // tasks - All Tasks
     tasks: async () => {
       return Task.find()
-      .populate('tags')
+      .populate('tag')
       .populate('toerId');
     },
     // task - One Task
     task: async (parent, { _id }) => {
       return Task.findOne({ _id })
-      .populate('tags')
+      .populate('tag')
       .populate('toerId')
       .populate('doerId');
     },
@@ -63,8 +63,8 @@ const resolvers = {
       return { token, user };
     },
     // addTask - (Create new task)
-    addTask: async (parent, { name, description, value, dueDate, tags }, context) => {
-      const task = await Task.create({ name, description, value, dueDate, tags, toerId: context.user._id });
+    addTask: async (parent, { name, description, value, dueDate, tag }, context) => {
+      const task = await Task.create({ name, description, value, dueDate, tag, toerId: context.user._id });
 
       await User.findOneAndUpdate(
         { _id: context.user._id },
@@ -74,8 +74,80 @@ const resolvers = {
       return task;
     },
     // editTask - (Update an existing task)
+    editTask: async (parent, args, context) => {
+      if (context.user) {
+        return Task.findOneAndUpdate(
+          { _id: args._id, toerId: context.user._id },
+          args, 
+          { new: true }
+        );
+      }
+
+      throw new AuthenticationError('Not logged in');
+    },
     // deleteTask - (Delete the Task)
-    // updateUser - (Update user, possibly adding their photo)    
+    deleteTask: async (parent, { taskId }, context) => {
+      if (context.user) {
+        const task = await Task.findOneAndDelete({
+          _id: taskId,
+          toerId: context.user._id,
+        });
+
+        await User.findOneAndUpdate(
+          { _id: context.user._id },
+          { $pull: { tasksPosted: taskId } }
+        );
+
+        return task;
+      }
+      throw new AuthenticationError('You need to be logged in!');
+    },
+    // updateUserPhoto - (update user's profile photo)
+    updateUserPhoto: async (parent, { photoUrl }, context) => {
+      if (context.user) {
+        return User.findByIdAndUpdate(
+          context.user._id,
+          { photo: photoUrl }, 
+          { new: true }
+        );
+      }
+
+      throw new AuthenticationError('Not logged in');
+    },
+    addComment: async (parent, { thoughtId, commentText }, context) => {
+      if (context.user) {
+        return Thought.findOneAndUpdate(
+          { _id: thoughtId },
+          {
+            $addToSet: {
+              comments: { commentText, commentAuthor: context.user.username },
+            },
+          },
+          {
+            new: true,
+            runValidators: true,
+          }
+        );
+      }
+      throw new AuthenticationError('You need to be logged in!');
+    },
+    removeComment: async (parent, { thoughtId, commentId }, context) => {
+      if (context.user) {
+        return Thought.findOneAndUpdate(
+          { _id: thoughtId },
+          {
+            $pull: {
+              comments: {
+                _id: commentId,
+                commentAuthor: context.user.username,
+              },
+            },
+          },
+          { new: true }
+        );
+      }
+      throw new AuthenticationError('You need to be logged in!');
+    },
   },
 };
 

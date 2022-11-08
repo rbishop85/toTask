@@ -4,6 +4,7 @@ import TaskPage from "../../pages/TaskPage";
 import Button from "react-bootstrap/Button";
 import Nav from "react-bootstrap/Nav";
 
+
 import Auth from "../../utils/auth";
 
 const Header = () => {
@@ -18,7 +19,7 @@ const Header = () => {
         <Link to="/">
         <img
           alt="toTask Logo"
-          src="/toTask.svg"
+          src="./assets/images/toTask.svg"
           width="180px"
           height="80px"
         />
