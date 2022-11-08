@@ -16,14 +16,16 @@ export const QUERY_ME = gql`
       _id
       username
       email
-      photo
+      # photo
       rating
       tasksPosted {
         _id
         name
         description
         value
-        tag
+        tag {
+          name
+        }
         doerId {
           username
         }
@@ -33,7 +35,9 @@ export const QUERY_ME = gql`
         name
         description
         value
-        tag
+        tag {
+          name
+        }
         toerId {
           username
         }
