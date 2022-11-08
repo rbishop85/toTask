@@ -42,6 +42,22 @@ const typeDefs = gql`
     tasks: [Task]
     task(_id: String!): Task
     tags: [Tag]
+    thoughts: [Thought]!
+    thought(thoughtId: ID!): Thought
+  }
+
+  type Thought {
+    _id: ID
+    thoughtText: String
+    thoughtAuthor: String
+    createdAt: String
+    comments: [Comment]!
+  }
+
+  type Comment {
+    _id: ID
+    commentText: String
+    createdAt: String
   }
 
   type Mutation {
@@ -51,6 +67,10 @@ const typeDefs = gql`
     editTask(_id: ID!, name: String, description: String, value: Int, dueDate: String, completedDate: String, tag: ID, doerId: ID): Task
     deleteTask(taskId: ID!): Task
     updateUserPhoto(photoUrl: String!): User
+    addThought(thoughtText: String!, thoughtAuthor: String!): Thought
+    addComment(thoughtId: ID!, commentText: String!): Thought
+    removeThought(thoughtId: ID!): Thought
+    removeComment(thoughtId: ID!, commentId: ID!): Thought
   }
 `;
 
