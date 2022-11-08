@@ -1,5 +1,5 @@
 const { Schema, model } = require("mongoose");
-const dateFormat = require('../utils/dateFormat');
+const dateFormat = require("../utils/dateFormat");
 
 const taskSchema = new Schema({
   name: {
@@ -26,22 +26,38 @@ const taskSchema = new Schema({
   completedDate: {
     type: Date,
     get: (timestamp) => dateFormat(timestamp),
-
   },
-  tags: [
-    {
-      type: Schema.Types.ObjectId,
-      ref: 'Tag'
-    }
-  ],
+  tag: {
+    type: Schema.Types.ObjectId,
+    ref: "Tag",
+  },
   toerId: {
     type: Schema.Types.ObjectId,
-    ref: 'User'
+    ref: "User",
   },
   doerId: {
     type: Schema.Types.ObjectId,
-    ref: 'User'
-  }
+    ref: "User",
+  },
+  comments: [
+    {
+      commentText: {
+        type: String,
+        required: true,
+        minlength: 1,
+        maxlength: 280,
+      },
+      createdAt: {
+        type: Date,
+        default: Date.now,
+        get: (timestamp) => dateFormat(timestamp),
+      },
+      commentAuthor: {
+        type: Schema.Types.ObjectId,
+        ref: "User",
+      },
+    },
+  ],
 });
 
 const Task = model("Task", taskSchema);

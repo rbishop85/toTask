@@ -1,4 +1,4 @@
-import { gql } from '@apollo/client';
+import { gql } from "@apollo/client";
 
 export const QUERY_USER = gql`
   query user($username: String!) {
@@ -16,6 +16,72 @@ export const QUERY_ME = gql`
       _id
       username
       email
+      photo
+      rating
+      tasksPosted {
+        _id
+        name
+        description
+        value
+        tag
+        doerId {
+          username
+        }
+      }
+      tasksAssigned {
+        _id
+        name
+        description
+        value
+        tag
+        toerId {
+          username
+        }
+      }
     }
+  }
+`;
+
+export const QUERY_TASKS = gql`
+  query getTasks {
+    tasks {
+      _id
+      name
+      description
+      value
+      dueDate
+      tag
+      toerId {
+        username
+      }
+    }
+  }
+`;
+
+export const QUERY_SINGLE_TASK = gql`
+  query getSingleTask {
+    task {
+      _id
+      name
+      description
+      value
+      postDate
+      dueDate
+      completedDate
+      tag
+      toerId {
+        username
+      }
+      doerId {
+        username
+      }
+    }
+  }
+`;
+
+export const QUERY_TAG = gql`
+  query getTag {
+    _id
+    name
   }
 `;
