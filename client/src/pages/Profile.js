@@ -4,6 +4,7 @@ import { useQuery } from '@apollo/client';
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
 import Alert from 'react-bootstrap/Alert';
+import CardGroup from 'react-bootstrap/CardGroup';
 
 import { QUERY_USER, QUERY_ME } from '../utils/queries';
 
@@ -45,12 +46,24 @@ const Profile = () => {
     <Card border="light" style={{ width: 'auto' }}>
     <Card.Header>Viewing {userParam ? `${user.username}'s` : 'your'} profile.</Card.Header>
     <Card.Body>
+      <Card.Img>{user.photo}</Card.Img>
       <Card.Title>{user.username}</Card.Title>
-      <Card.Text>
-        Some quick example text to build on the card title and make up the
-        bulk of the card's content.
-      </Card.Text>
     </Card.Body>
+    <Card.Body>
+      <Card.Text>
+        
+       User details go here
+      </Card.Text>
+        <Button>A button</Button>
+    </Card.Body>
+  <CardGroup>
+    <Card border="light" style={{ width: 'auto' }}>
+    <Card.Header>My Tos</Card.Header>
+    </Card>
+    <Card border="light" style={{ width: 'auto' }}>
+    <Card.Header>My Dos</Card.Header>
+    </Card>
+  </CardGroup>
   </Card>
 
   );
