@@ -16,7 +16,7 @@ const typeDefs = gql`
     _id: ID
     name: String
     description: String
-    value: Int
+    value: String
     postDate: String
     dueDate: String
     completedDate: String
@@ -57,7 +57,7 @@ const typeDefs = gql`
     addTask(
       name: String!
       description: String!
-      value: Int!
+      value: String!
       dueDate: String
       tag: ID
     ): Task

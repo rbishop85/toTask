@@ -6,54 +6,34 @@ import Auth from '../../utils/auth';
 // import { Button } from 'react-bootstrap';
 
 function TaskForm(props) {
-    const [taskInput, setTaskInput] = useState('');
-  
-    const [addTask, { error }] = useMutation(ADD_TASK, {
-      update(cache, { data: { addTask } }) {
-        try {
-          const { tasks } = cache.readQuery({ query: QUERY_TASKS });
-  
-          cache.writeQuery({
-            query: QUERY_TASKS,
-            data: { tasks: [addTask, ...tasks] },
-          });
-        } catch (e) {
-          console.error(e);
-        }
-  
-        // update me object's cache
-        const { me } = cache.readQuery({ query: QUERY_ME });
-        cache.writeQuery({
-          query: QUERY_ME,
-          data: { me: { ...me, tasks: [...me.tasks, addTask] } },
-        });
-      },
+  const [formState, setFormState] = useState({
+    name: '',
+    description: '',
+    value: '',
+  });
+  const [addTask, { error, data }] = useMutation(ADD_TASK);
+
+  const handleChange = (event) => {
+    const { name, value } = event.target;
+
+    setFormState({
+      ...formState,
+      [name]: value,
     });
-  
-    const handleFormSubmit = async (event) => {
-      event.preventDefault();
-  
-      try {
-        const { data } = await addTask({
-          variables: {
-            name: taskInput.name,
-            description: taskInput.description,
-            // fix this
-            toerId: Auth.getProfile().data.useId,
-          },
-        });
-  
-        setTaskInput('');
-      } catch (err) {
-        console.error(err);
-      }
-    };
+  };
 
+  const handleFormSubmit = async (event) => {
+    event.preventDefault();
+    console.log(formState);
 
-  const handleChange = (e) => {
-    const name = e.target.name;
-    const value = e.target.value;
-    setTaskInput(values => ({...values, [name]: value}));
+    try {
+      const { data } = await addTask({
+        variables: { ...formState },
+      });
+
+    } catch (e) {
+      console.error(e);
+    }
   };
 
   return !props.edit ? (
@@ -62,10 +42,10 @@ function TaskForm(props) {
         <label>
           Task category:
           <input
-            name="taskCategory"
+            name="name"
             type="text"
             placeholder="Insert Task Category"
-            value={taskInput.name}
+            value={formState.name}
             className="task-input"
             onChange={handleChange}
           ></input>
@@ -73,10 +53,21 @@ function TaskForm(props) {
         <label>
           Description:
           <input
-            name="taskDescription"
+            name="description"
             type="text"
             placeholder="describe your task"
-            value={taskInput.description}
+            value={formState.description}
+            className="task-input"
+            onChange={handleChange}
+          ></input>
+        </label>
+        <label>
+          Value:
+          <input
+            name="value"
+            type="number"
+            placeholder="price"
+            value={formState.value}
             className="task-input"
             onChange={handleChange}
           ></input>
@@ -93,14 +84,14 @@ function TaskForm(props) {
             name="category"
             type="text"
             placeholder={props.edit.name}
-            value={taskInput.name}
+            value={formState.name}
             className="task-input"
             onChange={handleChange}
           ></input>
         <input
           type="text"
           placeholder={props.edit.value}
-          value={taskInput.description}
+          value={formState.description}
           name="text"
           className="task-input"
           onChange={handleChange}
