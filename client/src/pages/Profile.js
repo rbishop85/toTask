@@ -5,6 +5,7 @@ import Button from "react-bootstrap/Button";
 import Card from "react-bootstrap/Card";
 import Alert from "react-bootstrap/Alert";
 import CardGroup from "react-bootstrap/CardGroup";
+// import TaskAccordion from "../components/TaskAccordion"
 
 import { QUERY_USER, QUERY_ME } from "../utils/queries";
 
@@ -48,19 +49,26 @@ const Profile = () => {
             Viewing {userParam ? `${user.username}'s` : "your"} profile.
           </Card.Header>
           <Card.Body>
-            <Card.Img>{user.photo}</Card.Img>
+            {/* <Card.Img>{user.photo}</Card.Img> */}
             <Card.Title>{user.username}</Card.Title>
           </Card.Body>
           <Card.Body>
-            <Card.Text>User details go here</Card.Text>
+            <Card.Text>{user.email}</Card.Text>
+            <Card.Text>{user.rating}</Card.Text>
             <Button>A button</Button>
           </Card.Body>
           <CardGroup>
             <Card border="light" style={{ width: "auto" }}>
               <Card.Header>My Tos</Card.Header>
+              {/* <TaskAccordion 
+                tasks={user.tasksPosted}
+              /> */}
             </Card>
             <Card border="light" style={{ width: "auto" }}>
               <Card.Header>My Dos</Card.Header>
+              {/* <TaskAccordion
+                tasks={user.tasksAssinged}
+              /> */}
             </Card>
           </CardGroup>
         </Card>
