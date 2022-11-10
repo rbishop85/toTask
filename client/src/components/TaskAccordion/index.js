@@ -1,5 +1,6 @@
 import React from "react";
 import Accordion from "react-bootstrap/Accordion";
+import Button from "react-bootstrap/Button";
 
 const TaskAccordion = ({ tasks }) => {
   if (!tasks.length) {
@@ -15,7 +16,7 @@ const TaskAccordion = ({ tasks }) => {
               <Accordion.Item eventKey="0">
                 <Accordion.Header>{name}</Accordion.Header>
                 <Accordion.Body>
-                  {description} {value}
+                  {description} {value} <Button>Assign Me</Button>
                 </Accordion.Body>
               </Accordion.Item>
             </Accordion>
