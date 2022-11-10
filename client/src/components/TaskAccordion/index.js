@@ -1,4 +1,5 @@
-import React from 'react';
+import React from "react";
+import Accordion from "react-bootstrap/Accordion";
 
 const TaskAccordion = ({ tasks }) => {
   if (!tasks.length) {
@@ -7,23 +8,19 @@ const TaskAccordion = ({ tasks }) => {
 
   return (
     <div>
-     
-      <div className="flex-row justify-space-between my-4">
-        {tasks &&
-          tasks.map((task) => (
-            <div key={task._id} className="col-12 col-xl-6">
-              <div className="card mb-3">
-                <h4 className="card-header bg-dark text-light p-2 m-0">
-                  {task.name} <br />
-                  <span className="text-white" style={{ fontSize: '1rem' }}>
-                  {task.description}
-                  {task.value}
-                  </span>
-                </h4>
-              </div>
-            </div>
-          ))}
-      </div>
+      {tasks &&
+        tasks.map(({ id, name, description, value }) => (
+          <div key={id}>
+            <Accordion>
+              <Accordion.Item eventKey="0">
+                <Accordion.Header>{name}</Accordion.Header>
+                <Accordion.Body>
+                  {description} {value}
+                </Accordion.Body>
+              </Accordion.Item>
+            </Accordion>
+          </div>
+        ))}
     </div>
   );
 };
