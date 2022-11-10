@@ -114,10 +114,10 @@ const resolvers = {
 
       throw new AuthenticationError('Not logged in');
     },
-    addComment: async (parent, { thoughtId, commentText }, context) => {
+    addComment: async (parent, { taskId, commentText }, context) => {
       if (context.user) {
-        return Thought.findOneAndUpdate(
-          { _id: thoughtId },
+        return Task.findOneAndUpdate(
+          { _id: taskId },
           {
             $addToSet: {
               comments: { commentText, commentAuthor: context.user.username },
@@ -131,10 +131,10 @@ const resolvers = {
       }
       throw new AuthenticationError('You need to be logged in!');
     },
-    removeComment: async (parent, { thoughtId, commentId }, context) => {
+    removeComment: async (parent, { taskId, commentId }, context) => {
       if (context.user) {
-        return Thought.findOneAndUpdate(
-          { _id: thoughtId },
+        return Task.findOneAndUpdate(
+          { _id: taskId },
           {
             $pull: {
               comments: {

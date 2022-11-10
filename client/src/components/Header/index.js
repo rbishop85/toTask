@@ -60,12 +60,6 @@ const Header = () => {
                     Signup
                   </Button>
                 </Link>
-
-                <Link to="/tasks">
-                  <Button variant="primary" className="m-2" size="lg">
-                    Tasks
-                  </Button>
-                </Link>
               </Nav.Item>
             </>
           )}
