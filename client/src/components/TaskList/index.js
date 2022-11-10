@@ -1,65 +1,38 @@
-import React, { useState } from 'react';
+import React from 'react';
 import TaskForm from '../TaskForm';
-import Tasks from '../Tasks';
+// import { Link } from 'react-router-dom';
 
-const TaskList = (props) => {
-    const [tasks, setTask] = useState([]);
+const TaskList = ({ tasks, title }) => {
+  // if (!tasks.length) {
+  //   return <h3>No Tasks Yet</h3>;
+  // }
 
-    const addTaskItem = (item) => {
-      console.log(
-        item
-      );
-
-      if (!item.text) {
-        return;
-      }
- 
-      const newTask = [item, ...tasks];
-      console.log(newTask);
-
-      setTask(newTask);
-    };
-  
-    const completeTaskItem = (id) => {
-      let updatedTask = tasks.map((item) => {
-        if (item.id === id) {
-          item.isComplete = !item.isComplete;
-        }
-        return item;
-      });
-  
-      console.log(updatedTask);
-      setTask(updatedTask);
-    };
-  
-    const removeTaskItem = (id) => {
-      const updatedTask = [...tasks].filter((item) => item.id !== id);
-  
-      setTask(updatedTask);
-    };
-
-    const editTaskItem = (itemId, newValue) => {
-      if (!newValue.text) {
-        return;
-      }
-  
-      setTask((prev) =>
-        prev.map((item) => (item.id === itemId ? newValue : item))
-      );
-    };
-  
-    return (
-      <div>
-        <h1>Add a task here.</h1>
-        <TaskForm onSubmit={addTaskItem} />
-        <Tasks
-          tasks={tasks}
-          completeTaskItem={completeTaskItem}
-          removeTaskItem={removeTaskItem}
-          editTaskItem={editTaskItem}
-        ></Tasks>
-      </div>
-    );
-}
-
+  return (
+    <div>
+      <TaskForm onSubmit={tasks} />
+      <h3>{title}</h3>
+      {tasks &&
+        tasks.map((task) => (
+          <div key={task._id} className="card mb-3">
+            <h4 className="card-header bg-primary text-light p-2 m-0">
+              {task.name} <br />
+              <span style={{ fontSize: '1rem' }}>
+                this task was created on {task.createdAt}
+              </span>
+            </h4>
+            <div className="card-body bg-light p-2">
+              <p>{task.description}</p>
+            </div>
+            {/* <Link
+              className="btn btn-primary btn-block btn-squared"
+              to={`/totasks/${thought}`}
+            >
+              Join the discussion on this thought.
+            </Link> */}
+          </div>
+        ))}
+    </div>
+  );
+};
+// testing
 export default TaskList;
