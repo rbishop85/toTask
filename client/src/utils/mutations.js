@@ -112,3 +112,13 @@ export const REMOVE_COMMENT = gql`
     }
   }
 `;
+
+export const ADD_PHOTO = gql`
+  mutation updateUserPhoto($photoUrl: String!) {
+    updateUserPhoto(photoUrl: $photoUrl) {
+      _id
+      username
+      photo
+    }
+  }
+`;
