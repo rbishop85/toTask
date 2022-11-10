@@ -16,7 +16,7 @@ export const QUERY_ME = gql`
       _id
       username
       email
-      # photo
+      photo
       rating
       tasksPosted {
         _id
