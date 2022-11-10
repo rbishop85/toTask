@@ -25,13 +25,14 @@ export const ADD_USER = gql`
 `;
 
 export const ADD_TASK = gql`
-  mutation addTask($taskText: String!) {
-    addTask(taskText: $taskText) {
+  mutation addTask($name: String!, $description: String!, $value: Int!, $dueDate: String!) {
+    addTask(name: $name, description: $description, value: $value, dueDate: $dueDate) {
       _id
       name
       description
-      toerId
-      createdAt
+      value
+      dueDate
+      postDate
       comments {
         _id
         commentText
@@ -41,12 +42,14 @@ export const ADD_TASK = gql`
 `;
 
 export const EDIT_TASK = gql`
-  mutation editTask($taskText: String!) {
-    editTask(taskText: $taskText) {
+  mutation editTask($name: String!, $description: String!, $value: Int!, $dueDate: String!){
+    editTask(name: $name, description: $description, value: $value, dueDate: $dueDate) {
       _id
+      name
       description
-      toerId
-      createdAt
+      value
+      dueDate
+      postDate
       comments {
         _id
         commentText
@@ -56,12 +59,14 @@ export const EDIT_TASK = gql`
 `;
 
 export const DELETE_TASK = gql`
-  mutation deleteTask($taskText: String!) {
-    deleteTask(taskText: $taskText) {
+  mutation deleteTask($taskId: ID!) {
+    deleteTask(taskId: $taskId) {
       _id
+      name
       description
-      toerId
-      createdAt
+      value
+      dueDate
+      postDate
       comments {
         _id
         commentText
@@ -71,13 +76,14 @@ export const DELETE_TASK = gql`
 `;
 
 export const ADD_COMMENT = gql`
-  mutation addComment($thoughtId: ID!, $commentText: String!) {
-    addComment(thoughtId: $thoughtId, commentText: $commentText) {
+  mutation addComment($taskId: ID!, $commentText: String!) {
+    addComment(taskId: $taskId, commentText: $commentText) {
       _id
+      name
       description
-      toerId
-      doerId
-      createdAt
+      value
+      dueDate
+      postDate
       comments {
         _id
         commentText
@@ -88,13 +94,14 @@ export const ADD_COMMENT = gql`
 `;
 
 export const REMOVE_COMMENT = gql`
-  mutation removeComment($thoughtId: ID!, $commentText: String!) {
-    removeComment(thoughtId: $thoughtId, commentText: $commentText) {
+  mutation removeComment($taskId: ID!, $commentText: String!) {
+    removeComment(taskId: $taskId, commentText: $commentText) {
       _id
+      name
       description
-      toerId
-      doerId
-      createdAt
+      value
+      dueDate
+      postDate
       comments {
         _id
         commentText
