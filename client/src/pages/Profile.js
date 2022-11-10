@@ -5,7 +5,7 @@ import Button from "react-bootstrap/Button";
 import Card from "react-bootstrap/Card";
 import Alert from "react-bootstrap/Alert";
 import CardGroup from "react-bootstrap/CardGroup";
-// import TaskAccordion from "../components/TaskAccordion"
+import TaskAccordion from "../components/TaskAccordion"
 
 import { QUERY_USER, QUERY_ME } from "../utils/queries";
 import { ADD_PHOTO } from '../utils/mutations';
@@ -62,6 +62,8 @@ const Profile = () => {
   });
 
   const user = data?.me || data?.user || {};
+
+
   // navigate to personal profile page if username is yours
   if (Auth.loggedIn() && Auth.getProfile().data.username === userParam) {
     return <Navigate to="/me" />;
@@ -89,6 +91,7 @@ const Profile = () => {
   return (
     <>
       {Auth.loggedIn() ? (
+        <div>
         <Card border="light" style={{ width: "auto" }}>
           <Card.Header>
             Viewing {userParam ? `${user.username}'s` : "your"} profile.
@@ -110,9 +113,10 @@ const Profile = () => {
           <CardGroup>
             <Card border="light" style={{ width: "auto" }}>
               <Card.Header>My Tos</Card.Header>
-              {/* <TaskAccordion 
+              
+              <TaskAccordion 
                 tasks={user.tasksPosted}
-              /> */}
+              />
             </Card>
             <Card border="light" style={{ width: "auto" }}>
               <Card.Header>My Dos</Card.Header>
@@ -122,6 +126,7 @@ const Profile = () => {
             </Card>
           </CardGroup>
         </Card>
+        </div>
       ) : (
         <Alert key="warning" variant="warning">
           This is a warning You need to be logged in to see this. Use the
