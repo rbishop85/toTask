@@ -51,11 +51,12 @@ const Profile = () => {
           <Card.Body>
             {/* <Card.Img>{user.photo}</Card.Img> */}
             <Card.Title>{user.username}</Card.Title>
+            {!user.photo && <Button>upload profile image</Button>}
+            {user.photo && <Button>change profile image</Button>}
           </Card.Body>
           <Card.Body>
             <Card.Text>{user.email}</Card.Text>
             <Card.Text>{user.rating}</Card.Text>
-            <Button>A button</Button>
           </Card.Body>
           <CardGroup>
             <Card border="light" style={{ width: "auto" }}>
