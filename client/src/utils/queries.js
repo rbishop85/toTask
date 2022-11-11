@@ -16,7 +16,7 @@ export const QUERY_ME = gql`
       _id
       username
       email
-      # photo
+      photo
       rating
       tasksPosted {
         _id
@@ -72,7 +72,9 @@ export const QUERY_SINGLE_TASK = gql`
       postDate
       dueDate
       completedDate
-      tag
+      tag {
+        name
+      }
       toerId {
         username
       }

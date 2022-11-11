@@ -1,8 +1,9 @@
 import React, { useState } from "react";
 import { useMutation } from '@apollo/client';
 import { ADD_TASK } from "../../utils/mutations";
-import { QUERY_TASKS, QUERY_ME } from "../../utils/queries";
-import Auth from '../../utils/auth';
+
+// import { QUERY_TASKS, QUERY_ME } from "../../utils/queries";
+// import Auth from '../../utils/auth';
 // import { Button } from 'react-bootstrap';
 
 function TaskForm(props) {
