@@ -102,6 +102,23 @@ const resolvers = {
       }
       throw new AuthenticationError('You need to be logged in!');
     },
+    // assignTask - (Assign Task to Current User)
+    assignTask: async (parent, { taskId }, context) => {
+      if (context.user) {
+        const task = await Task.findOneAndUpdate(
+          { _id: taskId },
+          { doerId: context.user._id }
+        );
+
+        await User.findOneAndUpdate(
+          { _id: context.user._id },
+          { $addToSet: { tasksAssigned: taskId } }
+        );
+
+        return task;
+      }
+      throw new AuthenticationError('You need to be logged in!');
+    },
     // updateUserPhoto - (update user's profile photo)
     updateUserPhoto: async (parent, { photoUrl }, context) => {
       if (context.user) {

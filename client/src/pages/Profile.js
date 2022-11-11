@@ -26,7 +26,8 @@ const Profile = () => {
       await updateUserPhoto({
         variables: { photoUrl: url },
       });
-  
+
+      window.location.reload();
     } catch (e) {
       console.error(e);
     }
