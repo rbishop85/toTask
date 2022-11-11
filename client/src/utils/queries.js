@@ -23,7 +23,9 @@ export const QUERY_ME = gql`
         name
         description
         value
-        tag
+        tag {
+          name
+        }
         doerId {
           username
         }
