@@ -32,6 +32,8 @@ function TaskForm(props) {
         variables: { ...formState },
       });
 
+      window.location.reload();
+
     } catch (e) {
       console.error(e);
     }

@@ -26,7 +26,12 @@ export const QUERY_ME = gql`
         tag {
           name
         }
+        toerId {
+          _id
+          username
+        }
         doerId {
+          _id
           username
         }
       }
@@ -58,6 +63,11 @@ export const QUERY_TASKS = gql`
         name
       }
       toerId {
+        _id
+        username
+      }
+      doerId {
+        _id
         username
       }
     }

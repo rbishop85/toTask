@@ -75,6 +75,24 @@ export const DELETE_TASK = gql`
   }
 `;
 
+export const ASSIGN_TASK = gql`
+  mutation assignTask($taskId: ID!) {
+    assignTask(taskId: $taskId) {
+      _id
+      name
+      description
+      toerId {
+        _id
+        username
+      }
+      doerId {
+        _id
+        username
+      }
+    }
+  }
+`;
+
 export const ADD_COMMENT = gql`
   mutation addComment($taskId: ID!, $commentText: String!) {
     addComment(taskId: $taskId, commentText: $commentText) {

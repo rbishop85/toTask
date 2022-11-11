@@ -11,6 +11,7 @@ const Header = () => {
   const logout = (event) => {
     event.preventDefault();
     Auth.logout();
+    window.location.replace("/")
   };
   return (
     <header className="bg-secondary text-light mb-4 py-3 flex-row align-center">
