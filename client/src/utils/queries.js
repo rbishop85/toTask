@@ -54,7 +54,9 @@ export const QUERY_TASKS = gql`
       description
       value
       dueDate
-      tag
+      tag {
+        name
+      }
       toerId {
         username
       }
@@ -72,7 +74,9 @@ export const QUERY_SINGLE_TASK = gql`
       postDate
       dueDate
       completedDate
-      tag
+      tag {
+        name
+      }
       toerId {
         username
       }
