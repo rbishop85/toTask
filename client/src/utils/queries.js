@@ -23,9 +23,7 @@ export const QUERY_ME = gql`
         name
         description
         value
-        tag {
-          name
-        }
+        tag
         doerId {
           username
         }
@@ -54,7 +52,9 @@ export const QUERY_TASKS = gql`
       description
       value
       dueDate
-      tag
+      tag {
+        name
+      }
       toerId {
         username
       }
