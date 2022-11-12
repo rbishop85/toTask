@@ -29,8 +29,10 @@ const TaskAccordion = ({ tasks }) => {
   return (
     <div>
       {tasks &&
-        tasks.map(({ _id, name, description, value, doerId, toerId }) => (
+
+        tasks.map(({ _id, name, description, value, doerId, toerId, postDate }) => (
           <div key={_id}> <br></br>
+
             <Accordion>
               <Accordion.Item eventKey="0">
                 <Accordion.Header>{name}</Accordion.Header>
@@ -38,8 +40,11 @@ const TaskAccordion = ({ tasks }) => {
                   {console.log(Auth.getProfile().data._id)}
                   {console.log(toerId._id)}
                   {console.log(doerId)}
+                  
                   <h3>Task Description: {description}</h3>
                   <p>Suggested Price: ${value}</p>
+                  {postDate}
+                  
                   {/* If task has a doerId, then print who the task is assigned to */}
                   <p>Assigned To: 
                     {doerId ? (

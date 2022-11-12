@@ -59,6 +59,7 @@ const typeDefs = gql`
       description: String!
       value: String!
       dueDate: String
+      postDate: String
       tag: ID
     ): Task
     editTask(
