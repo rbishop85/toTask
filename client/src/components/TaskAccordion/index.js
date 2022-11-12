@@ -35,20 +35,20 @@ const TaskAccordion = ({ tasks }) => {
 
             <Accordion>
               <Accordion.Item eventKey="0">
-                <Accordion.Header>{name}</Accordion.Header>
+                <Accordion.Header><h3>{name}</h3></Accordion.Header>
                 <Accordion.Body>
                   {console.log(Auth.getProfile().data._id)}
                   {console.log(toerId._id)}
                   {console.log(doerId)}
                   
-                  <h3>Task Description: {description}</h3>
+                  <p>Task Description: {description}</p>
                   <p>Suggested Price: ${value}</p>
-                  {postDate}
+                  <p>Task Created: {postDate}</p>
                   
                   {/* If task has a doerId, then print who the task is assigned to */}
-                  <p>Assigned To: 
+                  <p> 
                     {doerId ? (
-                      " Task Assigned to: " + doerId._id
+                      " Task Assigned to: " + doerId.username
                     ) : // Else if logged in user created task, display that task is currently unassigned
                     Auth.getProfile().data._id === toerId._id ? (
                       " Task Currently Unassigned"
