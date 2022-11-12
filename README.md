@@ -21,13 +21,13 @@ An app for posting and accepting tasks to be completed
 ## Usage
 
 ## Contributors
-Benjamin Stanfield
-Bennet Holgate
-Jamie Otto
-Robert Bishop
-Zane Johnson
+🔸 Benjamin Stanfield <br />
+🔸 Bennet Holgate <br />
+🔸 Jamie Otto <br />
+🔸 Robert Bishop <br />
+🔸 Zane Johnson
 
-ISC License
+### ISC License
 
 Copyright 2022 &copy; Benjamin Stanfield, Bennet Holgate, Jamie Otto, Robert Bishop, and Zane Johnson.
 
