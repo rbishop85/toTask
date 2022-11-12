@@ -43,8 +43,8 @@ function TaskForm(props) {
   };
 
   return !props.edit ? (
-    <Form>
-      <Form.Group className="mb-1" controlId='formTaskCategory' onSubmit={handleFormSubmit}>
+    <Form onSubmit={handleFormSubmit}>
+      <Form.Group className="mb-1" controlId='formTaskCategory'>
         <Form.Label>
           Task Category
         </Form.Label>
@@ -64,7 +64,7 @@ function TaskForm(props) {
           <Form.Control
             name="description"
             type="text"
-            placeholder="Describe Your Task!"
+            placeholder="Describe Your Task"
             value={formState.description}
             className="task-input"
             onChange={handleChange}

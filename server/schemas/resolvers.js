@@ -63,7 +63,7 @@ const resolvers = {
       return { token, user };
     },
     // addTask - (Create new task)
-    addTask: async (parent, { name, description, value, dueDate, tag }, context) => {
+    addTask: async (parent, { name, description, value, dueDate, postDate, tag }, context) => {
       const task = await Task.create({ name, description, value, dueDate, postDate, tag, toerId: context.user._id });
 
       await User.findOneAndUpdate(
