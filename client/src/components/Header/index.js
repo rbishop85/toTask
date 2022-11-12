@@ -1,9 +1,8 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import TaskPage from "../../pages/TaskPage";
 import Button from "react-bootstrap/Button";
 import Nav from "react-bootstrap/Nav";
-
+import "./navbar.css"
 
 import Auth from "../../utils/auth";
 
