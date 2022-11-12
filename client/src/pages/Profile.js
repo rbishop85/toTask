@@ -121,9 +121,9 @@ const Profile = () => {
             </Card>
             <Card border="light" style={{ width: "auto" }}>
               <Card.Header>My Dos</Card.Header>
-              {/* <TaskAccordion
+              <TaskAccordion
                 tasks={user.tasksAssinged}
-              /> */}
+              />
             </Card>
           </CardGroup>
         </Card>
