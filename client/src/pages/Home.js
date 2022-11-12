@@ -8,8 +8,8 @@ const Home = () => {
   // const thoughts = data?.thoughts || [];
 
   return (
-    <main>
-      <div className="flex-row justify-center">
+    <main className="">
+      <div className="">
     
         <ControlledCarousel />
 
