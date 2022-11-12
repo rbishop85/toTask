@@ -82,14 +82,21 @@ export const ASSIGN_TASK = gql`
       name
       description
       postDate
-      toerId {
-        _id
-        username
-      }
-      doerId {
-        _id
-        username
-      }
+      toerId
+      doerId
+    }
+  }
+`;
+
+export const UNASSIGN_TASK = gql`
+  mutation unassignTask($taskId: ID!) {
+    unassignTask(taskId: $taskId) {
+      _id
+      name
+      description
+      postDate
+      toerId
+      doerId
     }
   }
 `;

@@ -63,6 +63,7 @@ const Profile = () => {
   });
 
   const user = data?.me || data?.user || {};
+  
 
 
   // navigate to personal profile page if username is yours
@@ -93,6 +94,7 @@ const Profile = () => {
     <>
       {Auth.loggedIn() ? (
         <div>
+          {console.log(user)}
         <Card border="light" style={{ width: "auto" }}>
           <Card.Header>
             Viewing {userParam ? `${user.username}'s` : "your"} profile.
