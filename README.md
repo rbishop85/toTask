@@ -2,12 +2,12 @@
 An app for posting and accepting tasks to be completed
 
 ## Deployed Application
-[Deployed Application]("Application Link")
+[Deployed Application](https://to-task-app.herokuapp.com/)
 
-##GitHub Repositoy
-[toTask Repo](https://github.com/rbishop85/toTask/branches)
+## GitHub Repository
+[toTask Repository](https://github.com/rbishop85/toTask)
 ## Preview Image
-![Application Preview Image](... link to image.gif)
+![Application Preview Image](../toTask/client/public/assets/images/homepage.png)
 
 ## Description
 
