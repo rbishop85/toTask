@@ -11,7 +11,7 @@ function ControlledCarousel() {
           alt="First slide"
         />
         <Carousel.Caption>
-          <h3>When you need ‘TO’ do it,</h3>
+          <h3>When you can’t get TO it,</h3>
         </Carousel.Caption>
       </Carousel.Item>
       <Carousel.Item>
@@ -22,7 +22,7 @@ function ControlledCarousel() {
         />
 
         <Carousel.Caption>
-        <h3>get someone to ‘DO’ it!</h3>
+        <h3>get someone else to DO it!</h3>
         </Carousel.Caption>
       </Carousel.Item>
       <Carousel.Item>
