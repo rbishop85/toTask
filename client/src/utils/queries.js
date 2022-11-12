@@ -23,6 +23,7 @@ export const QUERY_ME = gql`
         name
         description
         value
+        postDate
         tag {
           name
         }
