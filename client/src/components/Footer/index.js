@@ -5,8 +5,8 @@ const Footer = () => {
   const location = useLocation();
   const navigate = useNavigate();
   return (
-    <footer className="w-100 mt-auto bg-secondary p-4">
-      <div className="container text-center mb-5">
+    <footer className="w-100 mt-auto bg-secondary p-3">
+      <div className="container text-center text-white">
         {location.pathname !== '/' && (
           <button
             className="btn btn-dark mb-3"
@@ -15,9 +15,9 @@ const Footer = () => {
             &larr; Go Back
           </button>
         )}
-        <h4>
-          Group 6 Life
-        </h4>
+        <h5>
+          Group 6 Life, LLC.
+        </h5>
       </div>
     </footer>
   );
