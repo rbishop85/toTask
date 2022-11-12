@@ -50,7 +50,7 @@ const TaskAccordion = ({ tasks }) => {
   };
 
   if (!tasks.length) {
-    return <h3>No Tasks Yet</h3>;
+    return <h5>No Tasks Yet</h5>;
   }
 
   return (
@@ -62,7 +62,7 @@ const TaskAccordion = ({ tasks }) => {
 
             <Accordion>
               <Accordion.Item eventKey="0">
-                <Accordion.Header><h3>{name}</h3></Accordion.Header>
+                <Accordion.Header><h5>{name}</h5></Accordion.Header>
                 <Accordion.Body>
                   {console.log(doerId)}
                   
