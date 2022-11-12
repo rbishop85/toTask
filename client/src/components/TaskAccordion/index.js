@@ -22,9 +22,9 @@ const TaskAccordion = ({ tasks }) => {
     }
   };
 
-  // if (!tasks.length) {
-  //   return <h3>No Tasks Yet</h3>;
-  // }
+  if (!tasks.length) {
+    return <h3>No Tasks Yet</h3>;
+  }
 
   return (
     <div>
