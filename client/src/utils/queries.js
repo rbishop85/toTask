@@ -41,10 +41,16 @@ export const QUERY_ME = gql`
         name
         description
         value
+        postDate
         tag {
           name
         }
         toerId {
+          _id
+          username
+        }
+        doerId {
+          _id
           username
         }
       }

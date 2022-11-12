@@ -15,8 +15,8 @@ const resolvers = {
     me: async (parent, args, context) => {
       if (context.user) {
         return User.findOne({ _id: context.user._id })
-        .populate('tasksPosted')
-        .populate('tasksAssigned');
+        .populate({path: 'tasksPosted', options: { sort: { postDate: -1 }}})
+        .populate({path: 'tasksAssigned', options: { sort: { postDate: -1 }}});
       }
       throw new AuthenticationError('You need to be logged in!');
     },
@@ -24,7 +24,8 @@ const resolvers = {
     tasks: async () => {
       return Task.find()
       .populate('tag')
-      .populate('toerId');
+      .populate('toerId')
+      .sort({ postDate: -1 });
     },
     // task - One Task
     task: async (parent, { _id }) => {
