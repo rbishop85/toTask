@@ -1,5 +1,5 @@
 import Carousel from "react-bootstrap/Carousel";
-import LoginButton from '../LoginButton';
+import LoginButton from "../LoginButton";
 
 function ControlledCarousel() {
   return (
@@ -11,8 +11,7 @@ function ControlledCarousel() {
           alt="First slide"
         />
         <Carousel.Caption>
-          <LoginButton />
-
+          <h3>When you need ‘TO’ do it,</h3>
         </Carousel.Caption>
       </Carousel.Item>
       <Carousel.Item>
@@ -23,7 +22,7 @@ function ControlledCarousel() {
         />
 
         <Carousel.Caption>
-        <LoginButton />
+        <h3>get someone to ‘DO’ it!</h3>
         </Carousel.Caption>
       </Carousel.Item>
       <Carousel.Item>
@@ -34,11 +33,10 @@ function ControlledCarousel() {
         />
 
         <Carousel.Caption>
-        <LoginButton />
+          <h3>DO it with toTask!</h3>
         </Carousel.Caption>
       </Carousel.Item>
     </Carousel>
-    
   );
 }
 
