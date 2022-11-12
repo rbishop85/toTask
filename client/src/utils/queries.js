@@ -6,6 +6,44 @@ export const QUERY_USER = gql`
       _id
       username
       email
+      photo
+      rating
+      tasksPosted {
+        _id
+        name
+        description
+        value
+        postDate
+        tag {
+          name
+        }
+        toerId {
+          _id
+          username
+        }
+        doerId {
+          _id
+          username
+        }
+      }
+      tasksAssigned {
+        _id
+        name
+        description
+        value
+        postDate
+        tag {
+          name
+        }
+        toerId {
+          _id
+          username
+        }
+        doerId {
+          _id
+          username
+        }
+      }
     }
   }
 `;

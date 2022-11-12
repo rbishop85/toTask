@@ -74,6 +74,7 @@ const typeDefs = gql`
     ): Task
     deleteTask(taskId: ID!): Task
     assignTask(taskId: ID!): Task
+    unassignTask(taskId: ID!): Task
     updateUserPhoto(photoUrl: String!): User
     addComment(taskId: ID!, commentText: String!): Task
     removeComment(taskId: ID!, commentId: ID!): Task

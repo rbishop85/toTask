@@ -94,6 +94,25 @@ export const ASSIGN_TASK = gql`
   }
 `;
 
+export const UNASSIGN_TASK = gql`
+  mutation unassignTask($taskId: ID!) {
+    unassignTask(taskId: $taskId) {
+      _id
+      name
+      description
+      postDate
+      toerId {
+        _id
+        username
+      }
+      doerId {
+        _id
+        username
+      }
+    }
+  }
+`;
+
 export const ADD_COMMENT = gql`
   mutation addComment($taskId: ID!, $commentText: String!) {
     addComment(taskId: $taskId, commentText: $commentText) {
