@@ -73,10 +73,9 @@ const TaskAccordion = ({ tasks }) => {
                   {/* If task has a doerId, then print who the task is assigned to */}
                   <p> 
                     {doerId ? (
-                      // " Task Assigned to: " + doerId.username
-                      (Auth.getProfile().data._id === doerId._id ? (<Button onClick={() => unassignButton(_id)}>Unassign Me</Button>) : (" Task Assigned to: " + doerId.username))
+                      (Auth.getProfile().data.username === doerId ? (<Button onClick={() => unassignButton(_id)}>Unassign Me</Button>) : (" Task Assigned to: " + doerId))
                     ) : // Else if logged in user created task, display that task is currently unassigned
-                    Auth.getProfile().data._id === toerId._id ? (
+                    Auth.getProfile().data.username === toerId ? (
                       " Task Currently Unassigned"
                     ) : (
                       // Else display button allowing user to assign themselves to task
@@ -84,7 +83,7 @@ const TaskAccordion = ({ tasks }) => {
                     )}
                   </p>
                   {/* If task was posted by current user, show a delete button */}
-                  {Auth.getProfile().data._id === toerId._id ? (<p><Button onClick={() => deleteButton(_id)}>DELETE</Button></p>) : ("")}
+                  {Auth.getProfile().data.username === toerId ? (<p><Button onClick={() => deleteButton(_id)}>DELETE</Button></p>) : ("")}
                 </Accordion.Body>
               </Accordion.Item>
             </Accordion>
