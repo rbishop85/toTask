@@ -14,11 +14,12 @@ import Auth from "../utils/auth";
 
 const CLOUDINARY_URL = 'https://api.cloudinary.com/v1_1/dvz8fgb8h/image/upload';
 const CLOUDINARY_UPLOAD_PRESET = 'csb18uju';
+const defaultProfile = "./assets/images/defaultprofile.jpg";
 
 const Profile = () => {
   const { username: userParam } = useParams();
 
-  const [updateUserPhoto, { error }] = useMutation(ADD_PHOTO);
+  const [updateUserPhoto] = useMutation(ADD_PHOTO);
   
   const addPhoto = async ( url ) => {
     
@@ -99,14 +100,12 @@ const Profile = () => {
           <Card.Header>
             Viewing {userParam ? `${user.username}'s` : "your"} profile.
           </Card.Header>
+          <Card.Img className="m-2" src={user?.photo ? user.photo : defaultProfile } style={{ width: '150px', height: '150px' }}></Card.Img>
           <Card.Body>
-            {/* <Card.Img>{user.photo}</Card.Img> */}
-            <Card.Title>{user.username}</Card.Title>
-            {/* {!user.photo && <Button>upload profile image</Button>}
-            {user.photo && <Button>change profile image</Button>} */}
             <Button onClick={handleClick}>
               {user.photo ? ( "change" ) : ( "upload" )} profile image
             </Button>
+            <Card.Title>{user.username}</Card.Title>
             <input type="file" ref={hiddenFileInput} onChange={handleChange} style={{display:'none'}} />
           </Card.Body>
           <Card.Body>
