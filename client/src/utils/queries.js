@@ -6,6 +6,32 @@ export const QUERY_USER = gql`
       _id
       username
       email
+      photo
+      rating
+      tasksPosted {
+        _id
+        name
+        description
+        value
+        postDate
+        tag {
+          name
+        }
+        toerId
+        doerId
+      }
+      tasksAssigned {
+        _id
+        name
+        description
+        value
+        postDate
+        tag {
+          name
+        }
+        toerId
+        doerId
+      }
     }
   }
 `;
@@ -27,26 +53,20 @@ export const QUERY_ME = gql`
         tag {
           name
         }
-        toerId {
-          _id
-          username
-        }
-        doerId {
-          _id
-          username
-        }
+        toerId
+        doerId
       }
       tasksAssigned {
         _id
         name
         description
         value
+        postDate
         tag {
           name
         }
-        toerId {
-          username
-        }
+        toerId
+        doerId
       }
     }
   }
@@ -64,14 +84,8 @@ export const QUERY_TASKS = gql`
       tag {
         name
       }
-      toerId {
-        _id
-        username
-      }
-      doerId {
-        _id
-        username
-      }
+      toerId
+      doerId
     }
   }
 `;
@@ -90,12 +104,8 @@ export const QUERY_SINGLE_TASK = gql`
       tag {
         name
       }
-      toerId {
-        username
-      }
-      doerId {
-        username
-      }
+      toerId
+      doerId
     }
   }
 `;

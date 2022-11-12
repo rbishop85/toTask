@@ -21,8 +21,8 @@ const typeDefs = gql`
     dueDate: String
     completedDate: String
     tag: Tag
-    toerId: User
-    doerId: User
+    toerId: String
+    doerId: String
     comments: [Comment]
   }
   type Comment {
@@ -70,10 +70,11 @@ const typeDefs = gql`
       dueDate: String
       completedDate: String
       tag: ID
-      doerId: ID
+      doerId: String
     ): Task
     deleteTask(taskId: ID!): Task
     assignTask(taskId: ID!): Task
+    unassignTask(taskId: ID!): Task
     updateUserPhoto(photoUrl: String!): User
     addComment(taskId: ID!, commentText: String!): Task
     removeComment(taskId: ID!, commentId: ID!): Task

@@ -9,14 +9,14 @@ const resolvers = {
     },
     user: async (parent, { username }) => {
       return User.findOne({ username })
-      .populate('tasksPosted')
+      .populate({path: 'tasksPosted', options: { sort: { postDate: -1 }}})
       .populate('tasksAssigned');
     },
     me: async (parent, args, context) => {
       if (context.user) {
         return User.findOne({ _id: context.user._id })
-        .populate('tasksPosted')
-        .populate('tasksAssigned');
+        .populate({path: 'tasksPosted', options: { sort: { postDate: -1 }}})
+        .populate({path: 'tasksAssigned', options: { sort: { postDate: -1 }}});
       }
       throw new AuthenticationError('You need to be logged in!');
     },
@@ -24,14 +24,12 @@ const resolvers = {
     tasks: async () => {
       return Task.find()
       .populate('tag')
-      .populate('toerId');
+      .sort({ postDate: -1 });
     },
     // task - One Task
     task: async (parent, { _id }) => {
       return Task.findOne({ _id })
       .populate('tag')
-      .populate('toerId')
-      .populate('doerId');
     },
     // tags - All Tags
     tags: async () => {
@@ -66,7 +64,7 @@ const resolvers = {
 
     addTask: async (parent, { name, description, value, dueDate, tag, postDate }, context) => {
 
-      const task = await Task.create({ name, description, value, dueDate, postDate, tag, toerId: context.user._id });
+      const task = await Task.create({ name, description, value, dueDate, postDate, tag, toerId: context.user.username });
 
       await User.findOneAndUpdate(
         { _id: context.user._id },
@@ -79,7 +77,7 @@ const resolvers = {
     editTask: async (parent, args, context) => {
       if (context.user) {
         return Task.findOneAndUpdate(
-          { _id: args._id, toerId: context.user._id },
+          { _id: args._id, toerId: context.user.username },
           args, 
           { new: true }
         );
@@ -92,12 +90,17 @@ const resolvers = {
       if (context.user) {
         const task = await Task.findOneAndDelete({
           _id: taskId,
-          toerId: context.user._id,
+          toerId: context.user.username,
         });
 
         await User.findOneAndUpdate(
           { _id: context.user._id },
           { $pull: { tasksPosted: taskId } }
+        );
+
+        await User.findOneAndUpdate(
+          { tasksAssigned: taskId },
+          { $pull: { tasksAssigned: taskId } }
         );
 
         return task;
@@ -109,12 +112,29 @@ const resolvers = {
       if (context.user) {
         const task = await Task.findOneAndUpdate(
           { _id: taskId },
-          { doerId: context.user._id }
+          { doerId: context.user.username }
         );
 
         await User.findOneAndUpdate(
           { _id: context.user._id },
           { $addToSet: { tasksAssigned: taskId } }
+        );
+
+        return task;
+      }
+      throw new AuthenticationError('You need to be logged in!');
+    },
+    // unassignTask - (Unassign Task from Current User)
+    unassignTask: async (parent, { taskId }, context) => {
+      if (context.user) {
+        const task = await Task.findOneAndUpdate(
+          { _id: taskId },
+          { doerId: "" }
+        );
+
+        await User.findOneAndUpdate(
+          { _id: context.user._id },
+          { $pull: { tasksAssigned: taskId } }
         );
 
         return task;

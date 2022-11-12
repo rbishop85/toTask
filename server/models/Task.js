@@ -32,12 +32,10 @@ const taskSchema = new Schema({
     ref: "Tag",
   },
   toerId: {
-    type: Schema.Types.ObjectId,
-    ref: "User",
+    type: String,
   },
   doerId: {
-    type: Schema.Types.ObjectId,
-    ref: "User",
+    type: String,
   },
   comments: [
     {
