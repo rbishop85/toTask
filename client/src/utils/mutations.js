@@ -81,6 +81,7 @@ export const ASSIGN_TASK = gql`
       _id
       name
       description
+      postDate
       toerId {
         _id
         username
