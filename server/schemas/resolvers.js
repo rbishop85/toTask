@@ -25,6 +25,7 @@ const resolvers = {
       return Task.find()
       .populate('tag')
       .populate('toerId')
+      .populate('doerId')
       .sort({ postDate: -1 });
     },
     // task - One Task
