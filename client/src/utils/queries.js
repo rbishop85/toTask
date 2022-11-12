@@ -59,6 +59,7 @@ export const QUERY_TASKS = gql`
       description
       value
       dueDate
+      postDate
       tag {
         name
       }
@@ -83,6 +84,7 @@ export const QUERY_SINGLE_TASK = gql`
       value
       postDate
       dueDate
+      postDate
       completedDate
       tag {
         name
