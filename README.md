@@ -102,3 +102,10 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 - [![Google Fonts](https://img.shields.io/badge/Google%20FOnts-303030?style=for-the-badge&logo=googlefonts&logoColor=white)](https://www.materializecss.com/)
 
 ## Model List
+
+## Questions
+Robert Bishop - rbishop85@gmail.com </br>
+Jamie Otto  - jmotto31@gmail.com </br>
+Bennett Holgate - holgateb@hotmail.com </br>
+Benjamin Stanfield - towheadcreative@gmail.com </br>
+Zane Johnson- johnsonzanem@gmail.com
