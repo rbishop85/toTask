@@ -7,8 +7,7 @@ An app for posting and accepting tasks to be completed
 ## GitHub Repository
 [toTask Repository](https://github.com/rbishop85/toTask)
 ## Preview Image
-![Application Preview Image](../toTask/client/public/assets/images/homepage.png)
-
+![Application Preview Image](../toTask/client/public/assets/images/project-3-homepage.png)
 ## Description
 
 ## Tale of Contents
@@ -19,6 +18,15 @@ An app for posting and accepting tasks to be completed
 - [Model List](#models)
 
 ## Usage
+* Click on Signup.
+* Enter a Username(Displayed account name), email address, and password to signupfor a toTask acccount.
+* Click on "Tasks" in the navigation bar.
+* Enter a task you would like to be completed by another toTask user.
+* After entering the Task Category, Task Description, and Task Rate you can upload your task for other users to assign to themselves.
+* As a user, you can also assign yourself tasks listed on the "Tasks" page.
+* Click on your account page in the navigation bar.
+* You can upload an account profile photo
+* On your account page, you can see tasks listed that you created and upload, as well as tasks you have assigned yourself.
 
 ## Contributors
 🔸 Benjamin Stanfield <br />
