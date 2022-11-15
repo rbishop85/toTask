@@ -16,6 +16,8 @@ An app for posting and accepting tasks to be completed
 - [License](#license)  
 - [Technology](#technology)
 - [Model List](#models)
+- [Questions](#questions)
+
 
 ## Usage
 * Click on Signup.
@@ -108,4 +110,4 @@ Robert Bishop - rbishop85@gmail.com </br>
 Jamie Otto  - jmotto31@gmail.com </br>
 Bennett Holgate - holgateb@hotmail.com </br>
 Benjamin Stanfield - towheadcreative@gmail.com </br>
-Zane Johnson- johnsonzanem@gmail.com
+Zane Johnson- johnsonzanem@gmail.com </br>
