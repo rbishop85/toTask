@@ -9,6 +9,11 @@ An app for posting and accepting tasks to be completed
 ## Preview Image
 ![Application Preview Image](../toTask/client/public/assets/images/project-3-homepage.png)
 ## Description
+toTask is an app for anyone with a task that needs to be done, and for anyone that wants to make money completing a task.
+
+We wanted to create an app that helps people get stuff done. If someone doesn’t have the time or skill to complete everything on their todo list, they can hire a qualified person. Also, if anyone wants to make side money, they can pick up tasks to complete.  
+
+A major goal of this project was to make a functioning MERN app that utilized simple login functionality to allow a user to sign-in and post a task.  Users then were able to view posted tasks and assign tasks to themselves and view their posted tasks and assigned tasks in their profile page.
 
 ## Tale of Contents
 - [Usage](#usage)  
