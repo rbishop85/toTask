@@ -2,13 +2,12 @@
 An app for posting and accepting tasks to be completed
 
 ## Deployed Application
-[Deployed Application]("Application Link")
+[Deployed Application](https://to-task-app.herokuapp.com/)
 
-##GitHub Repositoy
-[toTask Repo](https://github.com/rbishop85/toTask/branches)
+## GitHub Repository
+[toTask Repository](https://github.com/rbishop85/toTask)
 ## Preview Image
-![Application Preview Image](... link to image.gif)
-
+![Application Preview Image](../toTask/client/public/assets/images/project-3-homepage.png)
 ## Description
 
 ## Tale of Contents
@@ -19,15 +18,24 @@ An app for posting and accepting tasks to be completed
 - [Model List](#models)
 
 ## Usage
+* Click on Signup.
+* Enter a Username(Displayed account name), email address, and password to signupfor a toTask acccount.
+* Click on "Tasks" in the navigation bar.
+* Enter a task you would like to be completed by another toTask user.
+* After entering the Task Category, Task Description, and Task Rate you can upload your task for other users to assign to themselves.
+* As a user, you can also assign yourself tasks listed on the "Tasks" page.
+* Click on your account page in the navigation bar.
+* You can upload an account profile photo
+* On your account page, you can see tasks listed that you created and upload, as well as tasks you have assigned yourself.
 
 ## Contributors
-Benjamin Stanfield
-Bennet Holgate
-Jamie Otto
-Robert Bishop
-Zane Johnson
+🔸 Benjamin Stanfield <br />
+🔸 Bennet Holgate <br />
+🔸 Jamie Otto <br />
+🔸 Robert Bishop <br />
+🔸 Zane Johnson
 
-ISC License
+### ISC License
 
 Copyright 2022 &copy; Benjamin Stanfield, Bennet Holgate, Jamie Otto, Robert Bishop, and Zane Johnson.
 
@@ -51,9 +59,41 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 [JWT](https://www.npmjs.com/package/jwt)  
 
 ### Languages
+
 - [![JavaScript](https://img.shields.io/badge/JavaScript-323330?style=for-the-badge&logo=javascript&logoColor=F7DF1E)](https://www.javascript.com/)
 - [![HTML](https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white)](https://html.com/)
 - [![CSS](https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white)](https://www.w3schools.com/css/)
+
+### Libraries
+
+- [![Bootstrap](https://img.shields.io/badge/Bootstrap-563D7C?style=for-the-badge&logo=bootstrap&logoColor=white)](https://getbootstrap.com/)
+
+### Runtime
+
+- [![Node.js](https://img.shields.io/badge/Node.js-339933?style=for-the-badge&logo=nodedotjs&logoColor=white)](https://nodejs.org/en/)
+
+### Packages
+
+- [![NPM](https://img.shields.io/badge/npm-CB3837?style=for-the-badge&logo=npm&logoColor=white)](https://www.npmjs.com/)
+- [![Express.js](https://img.shields.io/badge/Express.js-000000?style=for-the-badge&logo=express&logoColor=white)](https://expressjs.com/)
+- [![Sequelize](https://img.shields.io/badge/Sequelize-52B0E7?style=for-the-badge&logo=Sequelize&logoColor=white)](https://sequelize.org/)
+- [![Handlbars](https://img.shields.io/badge/Handlebars.js-f0772b?style=for-the-badge&logo=handlebarsdotjs&logoColor=black)](https://handlebarsjs.com/)
+- [![dotENV](https://img.shields.io/badge/dotenv-323330?style=for-the-badge&logo=dotenv&logoColor=F7DF1E)](https://www.npmjs.com/package/dotenv)
+- [![MySQL2](https://img.shields.io/badge/MySQL2-CB3837?style=for-the-badge&logo=npm&logoColor=white)](https://www.npmjs.com/package/mysql2)
+- [![Express Session](https://img.shields.io/badge/express%20session-CB3837?style=for-the-badge&logo=npm&logoColor=white)](https://www.npmjs.com/package/express-session)
+- [![Connect Session Sequelize](https://img.shields.io/badge/connect%20session%20sequelize-CB3837?style=for-the-badge&logo=npm&logoColor=white)](https://www.npmjs.com/package/connect-session-sequelize)
+- [![Bcrypt](https://img.shields.io/badge/bcrypt-CB3837?style=for-the-badge&logo=npm&logoColor=white)](https://www.npmjs.com/package/bcrypt)
+- [![Multer](https://img.shields.io/badge/multer-CB3837?style=for-the-badge&logo=npm&logoColor=white)](https://www.npmjs.com/package/multer)
+
+
+
+### Database
+
+- [![MySQL](https://img.shields.io/badge/MySQL-005C84?style=for-the-badge&logo=mysql&logoColor=white)](https://www.mysql.com/)
+
+### Development
+
+- [![Nodemon](https://img.shields.io/badge/nodemon-669944?style=for-the-badge&logo=nodemon&logoColor=white)](https://www.mysql.com/)
 
 ### Libraries
 
