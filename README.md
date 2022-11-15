@@ -102,3 +102,26 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 - [![Google Fonts](https://img.shields.io/badge/Google%20FOnts-303030?style=for-the-badge&logo=googlefonts&logoColor=white)](https://www.materializecss.com/)
 
 ## Model List
+
+- User
+  - Username
+  - Email
+  - Password
+  - Photo
+  - Rating
+  - tasksPosted
+  - tasksAssigned
+  
+- Task
+  - Name
+  - Description
+  - Value
+  - postDate
+  - dueDate
+  - completedDate
+  - Tag
+  - toerId
+  - doerId
+  - comments
+- Tag
+  - name
